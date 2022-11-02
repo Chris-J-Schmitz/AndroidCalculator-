@@ -5,4 +5,8 @@
     <string name="buttonAdd">+</string>
     <string name="buttonEqual">=</string>
     <string name="buttonAdd2">+</string>
+    <string name="buttonDecimal">.</string>
+    <string name="button0">0</string>
+    <string name="button3">3</string>
+    <string name="buttonSubtract">-</string>
 </resources>
