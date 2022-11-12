@@ -16,7 +16,11 @@ public class MainActivity extends AppCompatActivity {
     public Integer num1 = 0;
     public Integer num2 = 0;
     public String result;
-
+    // Create boolean variables for the operation type
+    public boolean addition = false;
+    public boolean subtraction = false;
+    public boolean multiply = false;
+    public boolean divide = false;
 
 
     @Override
@@ -38,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Button b = (Button)view;
                 String text = b.getText().toString();
-                if ((current.getText().toString()) == "+") {
+                if ((current.getText().toString()) != null) {
                     current.setText("");
                 }
                 String updatedText = (current.getText().toString() + text);
@@ -54,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Button b = (Button)view;
                 String text = b.getText().toString();
-                if ((current.getText().toString()) == "+") {
+                if ((current.getText().toString()) != null) {
                     current.setText("");
                 }
                 String updatedText = (current.getText().toString() + text);
@@ -204,7 +208,20 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 setOperands();
                 current.setText("+");
-
+                //set operation to true
+                addition = true;
+            }
+        });
+        
+        // Subtract Button Definition
+        Button sub = findViewById(R.id.buttonSubtract);
+        sub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setOperands();
+                current.setText("-");
+                //set operation to true
+                subtraction = true;
             }
         });
 
@@ -222,12 +239,20 @@ public class MainActivity extends AppCompatActivity {
                 calculate();
                 current.setText(result);
                 previous.setText("");
+                
+                //set all operations to false to reset the operation
+                addition = false;
+                subtraction = false;
+                multiply = false;
+                divide = false;
             }
         });
 
 
 
     }
+
+    /** Extra Function Definitions */
 
     //Set Operands Function
     private void setOperands() {
@@ -240,7 +265,17 @@ public class MainActivity extends AppCompatActivity {
 
     // Calculation Function
     private void calculate() {
-        int temp = num1 + num2;
+        int temp = 0;
+        
+        if (addition) {
+            temp = num1 + num2;
+        }
+        else if (subtraction) {
+            temp =  num1 - num2;
+        }
+
+
+        
         result = Integer.toString(temp);
 
 
