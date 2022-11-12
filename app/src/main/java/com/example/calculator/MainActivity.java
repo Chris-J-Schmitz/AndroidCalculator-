@@ -75,6 +75,118 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Button Four Definitions
+        Button four = findViewById(R.id.button4);
+
+        four.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Button b = (Button)view;
+                String text = b.getText().toString();
+                if ((current.getText().toString() == "+")) {
+                    current.setText("");
+                }
+                String updatedText = (current.getText().toString() + text);
+                current.setText(updatedText);
+            }
+        });
+
+        // Button Five Definitions
+        Button five = findViewById(R.id.button5);
+
+        five.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Button b = (Button)view;
+                String text = b.getText().toString();
+                if ((current.getText().toString() == "+")) {
+                    current.setText("");
+                }
+                String updatedText = (current.getText().toString() + text);
+                current.setText(updatedText);
+            }
+        });
+
+        // Button Six Definitions
+        Button six = findViewById(R.id.button6);
+
+        six.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Button b = (Button)view;
+                String text = b.getText().toString();
+                if ((current.getText().toString() == "+")) {
+                    current.setText("");
+                }
+                String updatedText = (current.getText().toString() + text);
+                current.setText(updatedText);
+            }
+        });
+
+        // Button Seven Definitions
+        Button seven = findViewById(R.id.button7);
+
+        seven.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Button b = (Button)view;
+                String text = b.getText().toString();
+                if ((current.getText().toString() == "+")) {
+                    current.setText("");
+                }
+                String updatedText = (current.getText().toString() + text);
+                current.setText(updatedText);
+            }
+        });
+
+        // Button Eight Definitions
+        Button eight = findViewById(R.id.button8);
+
+        eight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Button b = (Button)view;
+                String text = b.getText().toString();
+                if ((current.getText().toString() == "+")) {
+                    current.setText("");
+                }
+                String updatedText = (current.getText().toString() + text);
+                current.setText(updatedText);
+            }
+        });
+
+        // Button Nine Definitions
+        Button nine = findViewById(R.id.button9);
+
+        nine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Button b = (Button)view;
+                String text = b.getText().toString();
+                if ((current.getText().toString() == "+")) {
+                    current.setText("");
+                }
+                String updatedText = (current.getText().toString() + text);
+                current.setText(updatedText);
+            }
+        });
+
+        // Button Zero Definitions
+        Button zero = findViewById(R.id.button0);
+
+        zero.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Button b = (Button)view;
+                String text = b.getText().toString();
+                if ((current.getText().toString() == "+")) {
+                    current.setText("");
+                }
+                String updatedText = (current.getText().toString() + text);
+                current.setText(updatedText);
+            }
+        });
+
 
 
         /**  Operational Button Definitions*/
