@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
         current = findViewById(R.id.currentOperand);
 
+
+        /**  Numeric Button Definitions*/
         // Button One Definitions
         Button one = findViewById(R.id.button1);
 
@@ -56,6 +58,26 @@ public class MainActivity extends AppCompatActivity {
                 current.setText(updatedText);
             }
         });
+
+        // Button Three Definitions
+        Button three = findViewById(R.id.button3);
+
+        three.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Button b = (Button)view;
+                String text = b.getText().toString();
+                if ((current.getText().toString()) == "+") {
+                    current.setText("");
+                }
+                String updatedText = (current.getText().toString() + text);
+                current.setText(updatedText);
+            }
+        });
+
+
+
+        /**  Operational Button Definitions*/
 
         // Addition Button Definition
 
