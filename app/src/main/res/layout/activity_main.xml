@@ -181,7 +181,6 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:background="#394247"
-        android:text="Previous Operand"
         android:textAlignment="textEnd"
         android:textColor="@color/white"
         android:textSize="34sp"

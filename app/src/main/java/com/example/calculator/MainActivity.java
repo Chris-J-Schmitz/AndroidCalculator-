@@ -9,8 +9,9 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    // Declare variable of the current operand text view
+    // Declare variable of the current and previous operand text view
     private TextView current;
+    private TextView previous;
     // Create empty variables to hold numbers
     public Integer num1 = 0;
     public Integer num2 = 0;
@@ -23,7 +24,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Define the current and previous operand
         current = findViewById(R.id.currentOperand);
+        previous = findViewById(R.id.currentOperand2);
 
 
         /**  Numeric Button Definitions*/
@@ -187,6 +190,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        /** End of Numeric Button Definitions */
+
 
 
         /**  Operational Button Definitions*/
@@ -197,9 +202,9 @@ public class MainActivity extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setOperand();
+                setOperands();
                 current.setText("+");
-                System.out.println("Num 1 = " + num1 + " and Num 2 = " + num2);
+
             }
         });
 
@@ -210,13 +215,13 @@ public class MainActivity extends AppCompatActivity {
         equal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.println("Num 1 = " + num1 + " and Num 2 = " + num2);
-                if(num2 == 0) {
-                    num2 = Integer.valueOf(current.getText().toString());
-                }
-                System.out.println("Num 1 = " + num1 + " and Num 2 = " + num2);
+
+                num2 = Integer.valueOf(current.getText().toString());
+
+
                 calculate();
                 current.setText(result);
+                previous.setText("");
             }
         });
 
@@ -224,12 +229,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //Set Operands Function
+    private void setOperands() {
 
-    private void setOperand() {
-     if(num1 == 0){
-        num1 = Integer.valueOf(current.getText().toString());
+        previous.setText(current.getText().toString());
+        num1 = Integer.valueOf(previous.getText().toString());
 
-     }
 
     }
 
