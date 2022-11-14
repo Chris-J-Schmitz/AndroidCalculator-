@@ -42,9 +42,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Button b = (Button)view;
                 String text = b.getText().toString();
-                if ((current.getText().toString()) != null) {
-                    current.setText("");
-                }
+
                 String updatedText = (current.getText().toString() + text);
                 current.setText(updatedText);
             }
@@ -58,9 +56,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Button b = (Button)view;
                 String text = b.getText().toString();
-                if ((current.getText().toString()) != null) {
-                    current.setText("");
-                }
+
                 String updatedText = (current.getText().toString() + text);
                 current.setText(updatedText);
             }
@@ -74,9 +70,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Button b = (Button)view;
                 String text = b.getText().toString();
-                if ((current.getText().toString()) == "+") {
-                    current.setText("");
-                }
+
                 String updatedText = (current.getText().toString() + text);
                 current.setText(updatedText);
             }
@@ -90,9 +84,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Button b = (Button)view;
                 String text = b.getText().toString();
-                if ((current.getText().toString() == "+")) {
-                    current.setText("");
-                }
+
                 String updatedText = (current.getText().toString() + text);
                 current.setText(updatedText);
             }
@@ -106,9 +98,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Button b = (Button)view;
                 String text = b.getText().toString();
-                if ((current.getText().toString() == "+")) {
-                    current.setText("");
-                }
+
                 String updatedText = (current.getText().toString() + text);
                 current.setText(updatedText);
             }
@@ -122,9 +112,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Button b = (Button)view;
                 String text = b.getText().toString();
-                if ((current.getText().toString() == "+")) {
-                    current.setText("");
-                }
+
                 String updatedText = (current.getText().toString() + text);
                 current.setText(updatedText);
             }
@@ -138,9 +126,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Button b = (Button)view;
                 String text = b.getText().toString();
-                if ((current.getText().toString() == "+")) {
-                    current.setText("");
-                }
+
                 String updatedText = (current.getText().toString() + text);
                 current.setText(updatedText);
             }
@@ -154,9 +140,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Button b = (Button)view;
                 String text = b.getText().toString();
-                if ((current.getText().toString() == "+")) {
-                    current.setText("");
-                }
+
                 String updatedText = (current.getText().toString() + text);
                 current.setText(updatedText);
             }
@@ -170,9 +154,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Button b = (Button)view;
                 String text = b.getText().toString();
-                if ((current.getText().toString() == "+")) {
-                    current.setText("");
-                }
+
                 String updatedText = (current.getText().toString() + text);
                 current.setText(updatedText);
             }
@@ -186,9 +168,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Button b = (Button)view;
                 String text = b.getText().toString();
-                if ((current.getText().toString() == "+")) {
-                    current.setText("");
-                }
+
                 String updatedText = (current.getText().toString() + text);
                 current.setText(updatedText);
             }
@@ -201,13 +181,13 @@ public class MainActivity extends AppCompatActivity {
         /**  Operational Button Definitions*/
 
         // Addition Button Definition
-
         Button add = findViewById(R.id.buttonAdd);
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setOperands();
-                current.setText("+");
+                setNum1();
+                previous.setText(previous.getText().toString() + "+");
+                current.setText("");
                 //set operation to true
                 addition = true;
             }
@@ -218,10 +198,45 @@ public class MainActivity extends AppCompatActivity {
         sub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setOperands();
-                current.setText("-");
+                if (current.getText().toString() != null) {
+                    setNum1();
+                    previous.setText(previous.getText().toString() + "-");
+                    current.setText("");
+                    //set operation to true
+                    subtraction = true;
+                }
+                else {
+                    Button b = (Button)view;
+                    String text = b.getText().toString();
+                    String updatedText = (current.getText().toString() + text);
+                    current.setText(updatedText);
+                }
+            }
+        });
+
+        // Multiply Button Definition
+        Button multi = findViewById(R.id.buttonMultiply);
+        multi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setNum1();
+                previous.setText(previous.getText().toString() + "*");
+                current.setText("");
                 //set operation to true
-                subtraction = true;
+                multiply = true;
+            }
+        });
+
+        // Divide Button Definition
+        Button div = findViewById(R.id.buttonDivide);
+        div.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setNum1();
+                previous.setText(previous.getText().toString() + "/");
+                current.setText("");
+                // set operation to true
+                divide = true;
             }
         });
 
@@ -248,6 +263,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        /** End of Operational Button Definitions*/
+
+
+        /** A/C and Delete Button definitions */
+
+        // Fill in with definitions for the A/C and Delete buttons
+
+        /** End of A/C and Delete Button definitions */
 
 
     }
@@ -255,7 +278,7 @@ public class MainActivity extends AppCompatActivity {
     /** Extra Function Definitions */
 
     //Set Operands Function
-    private void setOperands() {
+    private void setNum1() {
 
         previous.setText(current.getText().toString());
         num1 = Integer.valueOf(previous.getText().toString());
@@ -272,6 +295,12 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (subtraction) {
             temp =  num1 - num2;
+        }
+        else if (multiply) {
+            temp =  num1 * num2;
+        }
+        else if (divide) {
+            temp =  num1 / num2;
         }
 
 

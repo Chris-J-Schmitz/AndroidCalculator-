@@ -1,0 +1,59 @@
+[33mcommit 1a06cfdf4c4bc67e3744251bb978216fc2ffcff0[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Chris <96Schmitzc@gmail.com>
+Date:   Sat Nov 12 10:41:22 2022 -0600
+
+    Working on subraction function
+
+[33mcommit c83fcc582af14834c9833815960bd30f36458668[m
+Author: Chris <96Schmitzc@gmail.com>
+Date:   Sat Nov 12 10:25:28 2022 -0600
+
+    Added previous operand text field
+
+[33mcommit a7716ac41d90f88bf1d6e17303504d69d910aa2e[m
+Author: Chris <96Schmitzc@gmail.com>
+Date:   Sat Nov 12 10:11:36 2022 -0600
+
+    Added logic for all numeric buttons
+
+[33mcommit b6ad9852346ddcde9ac1a7c863e233ea6c9dd60d[m
+Author: Chris <96Schmitzc@gmail.com>
+Date:   Fri Nov 11 21:33:06 2022 -0600
+
+    Added logic for button 3
+
+[33mcommit 83882e29227a96e4042799d3433bd2dfa01dd890[m
+Author: Chris <96Schmitzc@gmail.com>
+Date:   Thu Nov 10 14:13:02 2022 -0600
+
+    Added the rest of the buttons to the UI and adjusted output locations
+
+[33mcommit 2bd6c743e4477ed12c02d618e46b3982d4b6ab42[m
+Author: Chris <96Schmitzc@gmail.com>
+Date:   Wed Nov 2 13:37:02 2022 -0500
+
+    Added buttons(3, 0, -, and adjusted equals button), as well as adjusted colors of previous operand field
+
+[33mcommit b0e2579e82f162b8e755f9d0aa97c04901f4bc85[m
+Author: Chris Schmitz <48893974+Chris-J-Schmitz@users.noreply.github.com>
+Date:   Wed Nov 2 11:02:56 2022 -0500
+
+    Create README.md
+
+[33mcommit 1fd43d3f846ee68e165579663d12a7c37e34e3f7[m
+Author: Chris <96Schmitzc@gmail.com>
+Date:   Tue Nov 1 21:32:42 2022 -0500
+
+    Adjusted current operand and added previous operand field. As well as adjusted color scheme to a more final version design
+
+[33mcommit 96cdd62089a7be2168303e41f3684391004b1860[m
+Author: Chris <96Schmitzc@gmail.com>
+Date:   Thu Oct 27 16:19:22 2022 -0500
+
+    Added 1 and 2 button to test basic addition functionality
+
+[33mcommit 61d7e118b55f56c0114f8b88a3f38cfd8f2244ca[m
+Author: Chris <96Schmitzc@gmail.com>
+Date:   Thu Oct 27 15:24:27 2022 -0500
+
+    Initial commit adding all files
