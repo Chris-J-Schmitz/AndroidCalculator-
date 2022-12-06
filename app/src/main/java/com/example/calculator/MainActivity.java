@@ -13,8 +13,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView current;
     private TextView previous;
     // Create empty variables to hold numbers
-    public Integer num1 = 0;
-    public Integer num2 = 0;
+    public Double num1 = 0.0;
+    public Double num2 = 0.0;
     public String result;
     // Create boolean variables for the operation type
     public boolean addition = false;
@@ -174,6 +174,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button decimal = findViewById(R.id.buttonDecimal);
+        decimal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Button b = (Button)view;
+                String text = b.getText().toString();
+
+                String updatedText = (current.getText().toString() + text);
+                current.setText(updatedText);
+            }
+        });
+
         /** End of Numeric Button Definitions */
 
 
@@ -185,11 +197,14 @@ public class MainActivity extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setNum1();
-                previous.setText(previous.getText().toString() + "+");
-                current.setText("");
-                //set operation to true
-                addition = true;
+                if (current.getText().toString() != null) {
+                    setNum1();
+                    previous.setText(previous.getText().toString() + "+");
+                    current.setText("");
+                    //set operation to true
+                    addition = true;
+                }
+
             }
         });
         
@@ -219,11 +234,13 @@ public class MainActivity extends AppCompatActivity {
         multi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setNum1();
-                previous.setText(previous.getText().toString() + "*");
-                current.setText("");
-                //set operation to true
-                multiply = true;
+                if (current.getText().toString() != null) {
+                    setNum1();
+                    previous.setText(previous.getText().toString() + "*");
+                    current.setText("");
+                    //set operation to true
+                    multiply = true;
+                }
             }
         });
 
@@ -232,11 +249,13 @@ public class MainActivity extends AppCompatActivity {
         div.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setNum1();
-                previous.setText(previous.getText().toString() + "/");
-                current.setText("");
-                // set operation to true
-                divide = true;
+                if (current.getText().toString() != null) {
+                    setNum1();
+                    previous.setText(previous.getText().toString() + "/");
+                    current.setText("");
+                    // set operation to true
+                    divide = true;
+                }
             }
         });
 
@@ -248,18 +267,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                num2 = Integer.valueOf(current.getText().toString());
+                if (current.getText().toString() != null && num1 != null) {
+                    num2 = Double.valueOf(current.getText().toString());
 
 
-                calculate();
-                current.setText(result);
-                previous.setText("");
-                
-                //set all operations to false to reset the operation
-                addition = false;
-                subtraction = false;
-                multiply = false;
-                divide = false;
+                    calculate();
+                    current.setText(result);
+                    previous.setText("");
+
+                    //set all operations to false to reset the operation
+                    addition = false;
+                    subtraction = false;
+                    multiply = false;
+                    divide = false;
+                }
             }
         });
 
@@ -268,7 +289,37 @@ public class MainActivity extends AppCompatActivity {
 
         /** A/C and Delete Button definitions */
 
-        // Fill in with definitions for the A/C and Delete buttons
+
+
+        // All Clear Button Definition
+        Button clear = findViewById(R.id.buttonClear);
+        clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                current.setText("");
+                previous.setText("");
+                num1 = 0.0;
+                num2 = 0.0;
+            }
+        });
+
+
+        Button del = findViewById(R.id.buttonDelete);
+        del.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (current.getText().toString() != null) {
+                    //Store current in a temp variable.
+                    String temp = current.getText().toString();
+                    // Create a string buffer to delete the last character
+                    StringBuffer sb = new StringBuffer(temp);
+                    sb.deleteCharAt(sb.length() - 1);
+                    // Set current to the new string with the last character removed
+                    current.setText(sb);
+                }
+
+            }
+        });
 
         /** End of A/C and Delete Button definitions */
 
@@ -281,14 +332,14 @@ public class MainActivity extends AppCompatActivity {
     private void setNum1() {
 
         previous.setText(current.getText().toString());
-        num1 = Integer.valueOf(previous.getText().toString());
+        num1 = Double.valueOf(previous.getText().toString());
 
 
     }
 
     // Calculation Function
     private void calculate() {
-        int temp = 0;
+        double temp = 0;
         
         if (addition) {
             temp = num1 + num2;
@@ -305,7 +356,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         
-        result = Integer.toString(temp);
+        result = Double.toString(temp);
 
 
 
